@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* 定义落子动画关键帧 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.square {
+  background: #fff;
+  border: 2px solid #555;
+  float: left;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  height: 40px;
+  margin-right: -2px;
+  margin-top: -2px;
+  padding: 0;
+  text-align: center;
+  width: 40px;
+  animation: fadeIn 0.3s ease-in-out; /* 应用落子动画，时长0.3秒，缓动为ease-in-out */
+  animation-fill-mode: forwards; /* 动画结束保持最后一帧状态 */
+  opacity: 0; /* 初始透明 */
+}
+
+.board-row {
+  clear: both;
+  content: '';
+  display: table;
+  background-color: #e0e0e0;
+}
+
+.board-row:nth-child(even) {
+  background-color: #d0d0d0;
+}
+
+/* 定义提示信息动画关键帧 */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px); /* 初始位置在下方20px处 */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0); /* 最终位置回到正常位置 */
+    opacity: 1;
+  }
+}
+
+.status {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #222;
+  animation: slideUp 0.5s ease-in-out; /* 应用提示信息动画，时长0.5秒，缓动为ease-in-out */
+  animation-fill-mode: forwards; /* 动画结束保持最后一帧状态 */
+  opacity: 0; /* 初始隐藏 */
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.game-info {
+  margin-left: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.game-info ol {
+  padding-left: 0;
+}
+
+.game-info li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.game-info button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  cursor: pointer;
+}
